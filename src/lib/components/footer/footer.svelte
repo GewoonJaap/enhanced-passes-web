@@ -9,6 +9,15 @@
 			>Jaap</a
 		>
 	</span>
+	<span class="addNewPassType">
+		<a
+			href="https://github.com/GewoonJaap/enhanced-passes-web/issues/new/choose"
+			target="_blank"
+			rel="noreferrer"
+		>
+			Suggest a new pass type
+		</a>
+	</span>
 </div>
 
 <style>
@@ -33,5 +42,11 @@
 	.githubProfile {
 		color: #000;
 		text-decoration: underline;
+	}
+	.addNewPassType {
+		font-size: 1.25em !important;
+		font-weight: 500;
+		color: #000;
+		margin: 0.5rem 0;
 	}
 </style>
