@@ -4,6 +4,7 @@
 	import { onMount } from 'svelte';
 
 	let ticketTypes: string[] = ['boardingpass'];
+	let apiReady = false;
 	let isLoading = false;
 	let error = '';
 	let lastPassUrl = '';
@@ -39,53 +40,76 @@
 			getTicketTypesFromAPI()
 		]);
 		ticketTypes = ticketTypes.concat((await promiseResults)[1].ticketTypes);
+		apiReady = true;
 	});
 </script>
 
-<div class="passFormContent">
-	<div class="passFormHeader">
-		<h1 class="defaultFont">{isLoading ? 'Creating pass...' : 'Create a new pass'}</h1>
-	</div>
-	<div class="errorField">
-		{#if error}
-			<p class="defaultFont error"><span class="bold">Something went wrong:</span> {error}</p>
+{#if apiReady}
+	<div class="passFormContent">
+		<div class="passFormHeader">
+			<h1 class="defaultFont">{isLoading ? 'Creating pass...' : 'Create a new pass'}</h1>
+		</div>
+		<div class="errorField">
+			{#if error}
+				<p class="defaultFont error"><span class="bold">Something went wrong:</span> {error}</p>
+			{/if}
+		</div>
+		<form on:submit|preventDefault={generatePass} method="POST" class="passForm">
+			<div class="formInput">
+				<label class="defaultFont" for="barcodeData">Barcode data</label>
+				<input type="text" name="barcodeData" placeholder="Barcode data here" class="defaultFont" />
+			</div>
+			<div class="formInput">
+				<label class="defaultFont" for="ticketType">Ticket type</label>
+				<select name="ticketType">
+					{#each ticketTypes as ticketType}
+						<option value={ticketType}>{ticketType.toUpperCase()}</option>
+					{/each}
+				</select>
+			</div>
+			<button type="submit" class={`defaultFont submitBtn ${isLoading ? 'loading' : ''}`}>
+				<div class="buttonContent">
+					<span>{isLoading ? 'Creating pass' : 'Create pass'}</span>
+					<lottie-player
+						src="https://assets3.lottiefiles.com/packages/lf20_wfsunjgd.json"
+						background="transparent"
+						speed="1"
+						style={`width: 2rem; height: 2rem; visibility: ${isLoading ? 'visible' : 'collapse'}`}
+						loop
+						autoplay
+					/>
+				</div>
+			</button>
+		</form>
+		{#if lastPassUrl}
+			<div class="lastPass">
+				<p>Click <a target="_blank" href={lastPassUrl}>here</a> to add your last created pass.</p>
+			</div>
 		{/if}
 	</div>
-	<form on:submit|preventDefault={generatePass} method="POST" class="passForm">
-		<div class="formInput">
-			<label class="defaultFont" for="barcodeData">Barcode data</label>
-			<input type="text" name="barcodeData" class="defaultFont" />
-		</div>
-		<div class="formInput">
-			<label class="defaultFont" for="ticketType">Ticket type</label>
-			<select name="ticketType">
-				{#each ticketTypes as ticketType}
-					<option value={ticketType}>{ticketType.toUpperCase()}</option>
-				{/each}
-			</select>
-		</div>
-		<button type="submit" class={`defaultFont submitBtn ${isLoading ? 'loading' : ''}`}>
-			<div class="buttonContent">
-				<span>{isLoading ? 'Creating pass' : 'Create pass'}</span>
-				<lottie-player
-					src="https://assets3.lottiefiles.com/packages/lf20_wfsunjgd.json"
-					background="transparent"
-					speed="1"
-					style={`width: 2rem; height: 2rem; visibility: ${isLoading ? 'visible' : 'collapse'}`}
-					loop
-					autoplay
-				/>
-			</div>
-		</button>
-	</form>
-	{#if lastPassUrl}
-		<div class="lastPass">
-			<p>Click <a target="_blank" href={lastPassUrl}>here</a> to add your last created pass.</p>
-		</div>
-	{/if}
-</div>
+{:else}
+	<div class="apiLoading">
+		<h1 class="defaultFont">Waiting for our hamsters to accept your pass...</h1>
+		<lottie-player
+			src="https://assets2.lottiefiles.com/packages/lf20_jk2naj.json"
+			background="transparent"
+			speed="1"
+			style="width: 300px;"
+			loop
+			autoplay
+		/>
+	</div>
+{/if}
 
 <style>
+	.apiLoading {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		margin-top: 2em;
+	}
+
 	.loading {
 		cursor: wait !important;
 	}
@@ -119,6 +143,7 @@
 		align-items: flex-start;
 		justify-content: center;
 		margin-bottom: 1em;
+		width: 100%;
 	}
 	.formInput label {
 		font-size: 1rem;
@@ -126,6 +151,18 @@
 		color: #000;
 		margin-bottom: 0.5em;
 		font-family: 'Lato', sans-serif;
+		border-bottom: #000 1px solid;
+	}
+	.formInput select,
+	.formInput input {
+		width: 100%;
+		padding: 0.5em 0;
+		font-size: 1rem;
+		font-weight: 700;
+		color: #000;
+		font-family: 'Lato', sans-serif;
+		background-color: transparent;
+		border: none;
 		border-bottom: #000 1px solid;
 	}
 	.passForm {
