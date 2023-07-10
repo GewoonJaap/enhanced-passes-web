@@ -18,6 +18,15 @@
 			Suggest a new pass type
 		</a>
 	</span>
+	<span class="downloadApp">
+		<a
+			href="https://play.google.com/store/apps/details?id=nl.gardensnakes.enhancedpasses"
+			target="_blank"
+			rel="noreferrer"
+		>
+			Download our Android app
+		</a>
+	</span>
 </div>
 
 <style>
@@ -44,6 +53,12 @@
 		text-decoration: underline;
 	}
 	.addNewPassType {
+		font-size: 1.25em !important;
+		font-weight: 500;
+		color: #000;
+		margin: 0.5rem 0;
+	}
+	.downloadApp {
 		font-size: 1.25em !important;
 		font-weight: 500;
 		color: #000;

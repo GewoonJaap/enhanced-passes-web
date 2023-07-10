@@ -1,6 +1,7 @@
 <script lang="ts">
 	import SEO from '$lib/components/SEO/index.svelte';
 	import Footer from '$lib/components/footer/footer.svelte';
+	import WalletInfo from '$lib/components/homepage/walletInfo.svelte';
 	import PassForm from '$lib/components/passForm/passForm.svelte';
 	import { onMount } from 'svelte';
 	const SEOTags = {
@@ -32,6 +33,7 @@
 	</div>
 	<hr />
 	<PassForm />
+	<WalletInfo />
 </div>
 <div class="footerComponent">
 	<Footer />
