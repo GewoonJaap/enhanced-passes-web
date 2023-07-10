@@ -6,7 +6,7 @@
 	import { onMount } from 'svelte';
 	const SEOTags = {
 		metadescription:
-			'Easily create (boarding)passes for Google Pay. No coding required. Create your pass in 5 minutes.',
+			'Easily create (boarding)pass for Google Pay. No coding required. Create your pass in 5 minutes.',
 		slug: '',
 		title: ' Issuance - Create your Google Pay pass in 5 minutes'
 	};
@@ -20,7 +20,7 @@
 	<div class="header">
 		<h1>Enhanced Passes</h1>
 		<span class="callToAction"
-			>Create your (boarding)passes within 5 minutes. No coding required!</span
+			>Create your (boarding)pass within 5 minutes. No coding required!</span
 		>
 		<lottie-player
 			class="passLottie"
