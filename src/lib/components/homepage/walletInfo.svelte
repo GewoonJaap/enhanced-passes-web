@@ -7,17 +7,46 @@
 	});
 </script>
 
-<div class="proxyInfo">
+<div class="walletInfo">
 	<hr />
 	<lottie-player
-		class="proxyInfoLottie"
+		class="walletInfoLottie"
+		autoplay={true}
+		loop
+		mode="normal"
+		src="https://assets4.lottiefiles.com/private_files/lf30_pwaprrnl.json"
+		speed="0.25"
+	/>
+	<div class="walletInfoText">
+		<h2 class="headerText">Have you already tried our Android app?</h2>
+		<p1 class="defaultFont">
+			Did you know that Enhanced Passes also has a convenient app available in the Google Play
+			Store? With our app, you can import and manage your boarding passes and event tickets directly
+			from your smartphone.
+			<br />
+			Say goodbye to the hassle of paper tickets and enjoy the convenience of having all your passes
+			in one place.
+		</p1>
+		<p1 class="defaultFont">
+			<a
+				href="https://play.google.com/store/apps/details?id=nl.gardensnakes.enhancedpasses"
+				target="_blank"
+				rel="noreferrer">Download the Enhanced Passes app on the Google Play Store</a
+			> and experience the ultimate ticket management solution on the go!
+		</p1>
+	</div>
+
+	<hr />
+
+	<lottie-player
+		class="walletInfoLottie"
 		autoplay={true}
 		loop
 		mode="normal"
 		src="https://assets10.lottiefiles.com/private_files/lf30_Jk3ls8.json"
 		speed="0.25"
 	/>
-	<div class="proxyInfoText">
+	<div class="walletInfoText">
 		<h2 class="headerText">
 			The benefits of import your passes into Google Wallet in {new Date().getFullYear()}
 		</h2>
@@ -55,7 +84,7 @@
 </div>
 
 <style>
-	.proxyInfoLottie {
+	.walletInfoLottie {
 		height: 300px;
 	}
 	hr {
@@ -63,7 +92,7 @@
 		border: 1px solid #000;
 		margin-top: 5em;
 	}
-	.proxyInfo {
+	.walletInfo {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -71,7 +100,7 @@
 		background-color: white;
 	}
 
-	.proxyInfoText {
+	.walletInfoText {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -97,10 +126,10 @@
 	}
 
 	@media only screen and (max-width: 810px) {
-		.proxyInfoText {
+		.walletInfoText {
 			width: 90%;
 		}
-		.proxyInfoLottie {
+		.walletInfoLottie {
 			height: 150px;
 		}
 	}
