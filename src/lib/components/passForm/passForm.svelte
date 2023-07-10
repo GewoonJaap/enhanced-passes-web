@@ -68,7 +68,7 @@
 			<div class="buttonContent">
 				<span>{isLoading ? 'Creating pass' : 'Create pass'}</span>
 				<lottie-player
-					src="https://assets3.lottiefiles.com/packages/lf20_kxsd2ytq.json"
+					src="https://assets3.lottiefiles.com/packages/lf20_wfsunjgd.json"
 					background="transparent"
 					speed="1"
 					style={`width: 2rem; height: 2rem; visibility: ${isLoading ? 'visible' : 'collapse'}`}
