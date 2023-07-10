@@ -54,6 +54,7 @@
 		align-items: center;
 		justify-content: center;
 		background-color: white;
+		text-align: center;
 	}
 
 	.header span {

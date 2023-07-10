@@ -123,6 +123,7 @@
 		font-weight: 900;
 		color: #000;
 		margin: 0.5rem 0;
+		text-align: center;
 	}
 
 	@media only screen and (max-width: 810px) {
