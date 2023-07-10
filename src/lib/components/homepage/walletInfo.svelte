@@ -48,7 +48,7 @@
 	/>
 	<div class="walletInfoText">
 		<h2 class="headerText">
-			The benefits of import your passes into Google Wallet in {new Date().getFullYear()}
+			The benefits of importing your passes into Google Wallet in {new Date().getFullYear()}
 		</h2>
 		<p1 class="defaultFont">
 			Enhanced Passes, your ultimate solution for hassle-free ticket management!
