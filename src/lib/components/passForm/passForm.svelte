@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { createPass, getTicketTypesFromAPI } from '$lib/api/enhancedPassesBackend';
 	import type { BarcodeAPIRequest } from '$lib/typeDef/apiRequests';
+	import WalletButtonImage from '$lib/images/wallet-button.png';
 	import { onMount } from 'svelte';
 
 	let ticketTypes: string[] = ['boardingpass'];
@@ -83,7 +84,10 @@
 		</form>
 		{#if lastPassUrl}
 			<div class="lastPass">
-				<p>Click <a target="_blank" href={lastPassUrl}>here</a> to add your last created pass.</p>
+				<p>Click the button below to add your most recently generated pass to your Google Wallet</p>
+				<a target="_blank" class="walletButton" href={lastPassUrl}
+					><img class="walletButtonImage" src={WalletButtonImage} alt="Google Wallet Button" /></a
+				>
 			</div>
 		{/if}
 	</div>
@@ -102,6 +106,10 @@
 {/if}
 
 <style>
+	.walletButtonImage {
+		height: 3rem;
+		margin-left: 0.5em;
+	}
 	.apiLoading {
 		display: flex;
 		flex-direction: column;
@@ -192,6 +200,11 @@
 
 	.lastPass {
 		margin-top: 1em;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
 	}
 	.lastPass a {
 		color: #000;
@@ -203,5 +216,12 @@
 		color: #000;
 		margin-bottom: 0.5em;
 		font-family: 'Lato', sans-serif;
+	}
+
+	.walletButton {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-top: 1em;
 	}
 </style>
