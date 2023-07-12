@@ -3,6 +3,10 @@
 	import type { BarcodeAPIRequest } from '$lib/typeDef/apiRequests';
 	import WalletButtonImage from '$lib/images/wallet-button.png';
 	import { onMount } from 'svelte';
+	import { setupLocale } from '$lib/locale/i18';
+	import { _ } from 'svelte-i18n';
+
+	setupLocale();
 
 	let ticketTypes: string[] = ['boardingpass'];
 	let apiReady = false;
@@ -48,20 +52,28 @@
 {#if apiReady}
 	<div class="passFormContent">
 		<div class="passFormHeader">
-			<h1 class="defaultFont">{isLoading ? 'Creating pass...' : 'Create a new pass'}</h1>
+			<h1 class="defaultFont">{isLoading ? $_('CREATING_PASS') : $_('CREATE_A_NEW_PASS')}</h1>
 		</div>
 		<div class="errorField">
 			{#if error}
-				<p class="defaultFont error"><span class="bold">Something went wrong:</span> {error}</p>
+				<p class="defaultFont error">
+					<span class="bold">{$_('SOMETHING_WENT_WRONG')}:</span>
+					{error}
+				</p>
 			{/if}
 		</div>
 		<form on:submit|preventDefault={generatePass} method="POST" class="passForm">
 			<div class="formInput">
-				<label class="defaultFont" for="barcodeData">Barcode data</label>
-				<input type="text" name="barcodeData" placeholder="Barcode data here" class="defaultFont" />
+				<label class="defaultFont" for="barcodeData">{$_('BARCODE_DATA')}</label>
+				<input
+					type="text"
+					name="barcodeData"
+					placeholder={$_('BARCODE_DATA_HERE')}
+					class="defaultFont"
+				/>
 			</div>
 			<div class="formInput">
-				<label class="defaultFont" for="ticketType">Ticket type</label>
+				<label class="defaultFont" for="ticketType">{$_('TICKET_TYPE')}</label>
 				<select name="ticketType">
 					{#each ticketTypes as ticketType}
 						<option value={ticketType}>{ticketType.toUpperCase()}</option>
@@ -70,7 +82,7 @@
 			</div>
 			<button type="submit" class={`defaultFont submitBtn ${isLoading ? 'loading' : ''}`}>
 				<div class="buttonContent">
-					<span>{isLoading ? 'Creating pass' : 'Create pass'}</span>
+					<span>{isLoading ? $_('CREATING_PASS') : $_('CREATE_PASS')}</span>
 					<lottie-player
 						src="https://assets3.lottiefiles.com/packages/lf20_wfsunjgd.json"
 						background="transparent"
@@ -84,16 +96,20 @@
 		</form>
 		{#if lastPassUrl}
 			<div class="lastPass">
-				<p>Click the button below to add your most recently generated pass to your Google Wallet</p>
+				<p>{$_('CLICK_BUTTON_TO_ADD_LAST_GENERATED_PASS')}</p>
 				<a target="_blank" class="walletButton" href={lastPassUrl}
-					><img class="walletButtonImage" src={WalletButtonImage} alt="Google Wallet Button" /></a
+					><img
+						class="walletButtonImage"
+						src={WalletButtonImage}
+						alt={$_('GOOGLE_WALLET_BUTTON_ALT')}
+					/></a
 				>
 			</div>
 		{/if}
 	</div>
 {:else}
 	<div class="apiLoading">
-		<h1 class="defaultFont">Waiting for our hamsters to accept your pass...</h1>
+		<h1 class="defaultFont">{$_('WAITING_FOR_HAMSTERS')}</h1>
 		<lottie-player
 			src="https://assets2.lottiefiles.com/packages/lf20_jk2naj.json"
 			background="transparent"

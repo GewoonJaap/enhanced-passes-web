@@ -2,6 +2,11 @@
 	import { goto } from '$app/navigation';
 	import { HomeRoute } from '$lib/const/routes';
 	import { onMount } from 'svelte';
+	import { setupLocale } from '$lib/locale/i18';
+	import { _ } from 'svelte-i18n';
+
+	setupLocale();
+
 	onMount(async () => {
 		await import('@lottiefiles/lottie-player');
 	});
@@ -18,21 +23,21 @@
 		speed="0.25"
 	/>
 	<div class="walletInfoText">
-		<h2 class="headerText">Have you already tried our Android app?</h2>
+		<h2 class="headerText">{$_('HAVE_YOUR_ALREADY_TRIED_ANDROID_APP')}</h2>
 		<p1 class="defaultFont">
-			Did you know that Enhanced Passes also has a convenient app available in the Google Play
-			Store? With our app, you can import and manage your boarding passes and event tickets directly
-			from your smartphone.
+			<!-- TEXT 1 -->
+			{$_('WALLET_INFO_TEXT_1')}
 			<br />
-			Say goodbye to the hassle of paper tickets and enjoy the convenience of having all your passes
-			in one place.
+			<!-- TEXT 2 -->
+			{$_('WALLET_INFO_TEXT_2')}
 		</p1>
 		<p1 class="defaultFont">
 			<a
 				href="https://play.google.com/store/apps/details?id=nl.gardensnakes.enhancedpasses"
 				target="_blank"
-				rel="noreferrer">Download the Enhanced Passes app on the Google Play Store</a
-			> and experience the ultimate ticket management solution on the go!
+				rel="noreferrer">{$_('DOWNLOAD_THE_APP_IN_THE_STORE')}</a
+			>
+			{$_('DOWNLOAD_THE_APP_IN_THE_STORE_2')}
 		</p1>
 	</div>
 
@@ -48,36 +53,36 @@
 	/>
 	<div class="walletInfoText">
 		<h2 class="headerText">
-			The benefits of importing your passes into Google Wallet in {new Date().getFullYear()}
+			{$_('BENEFITS_OF_IMPORTING_PASS')}
+			{new Date().getFullYear()}
 		</h2>
 		<p1 class="defaultFont">
-			Enhanced Passes, your ultimate solution for hassle-free ticket management!
+			<!-- TEXT 3 -->
+			{$_('WALLET_INFO_TEXT_3')}
 			<br />
-			In today's fast-paced world, having a convenient and secure way to store your boarding passes and
-			event tickets is more crucial than ever.
-			<br />That's where Enhanced Passes comes to the rescue, empowering you to import and organize
-			your tickets seamlessly into your Google Wallet using a simple barcode.
-		</p1>
-		<p1 class="defaultFont"
-			>Why hassle with carrying paper tickets or searching through emails to find your passes when
-			you can have everything conveniently stored in one secure location?
+			<!-- TEXT 4 -->
+			{$_('WALLET_INFO_TEXT_4')}
 			<br />
-			Enhanced Passes streamlines the process by allowing you to effortlessly import your boarding passes
-			and event tickets directly into your Google Wallet with just a scan of the barcode. It's quick,
-			efficient, and eliminates the need for cluttered physical or digital files.
+			<!-- TEXT 5 -->
+			{$_('WALLET_INFO_TEXT_5')}
 		</p1>
 		<p1 class="defaultFont">
-			Security is paramount when it comes to storing your tickets, and Enhanced Passes understands
-			this concern.
+			<!-- TEXT 6 -->
+			{$_('WALLET_INFO_TEXT_6')}
 			<br />
-			Rest assured that our website employs the latest encryption technology to safeguard your data.
-			Your privacy is our top priority, and we take every precaution to ensure that your information
-			remains confidential and protected.
+			<!-- TEXT 7 -->
+			{$_('WALLET_INFO_TEXT_7')}
 		</p1>
 		<p1 class="defaultFont">
-			Enhanced Passes is your reliable companion for stress-free ticket management. Say goodbye to
-			the inconvenience of paper tickets and scattered digital files. Embrace the future with the
-			convenience and security of Google Wallet integration
+			<!-- TEXT 8 -->
+			{$_('WALLET_INFO_TEXT_8')}
+			<br />
+			<!-- TEXT 9 -->
+			{$_('WALLET_INFO_TEXT_9')}
+		</p1>
+		<p1 class="defaultFont">
+			<!-- TEXT 10 -->
+			{$_('WALLET_INFO_TEXT_10')}
 		</p1>
 	</div>
 	<hr />

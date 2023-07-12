@@ -3,6 +3,8 @@
 	import Footer from '$lib/components/footer/footer.svelte';
 	import WalletInfo from '$lib/components/homepage/walletInfo.svelte';
 	import PassForm from '$lib/components/passForm/passForm.svelte';
+	import { setupLocale } from '$lib/locale/i18';
+	import { _, isLoading } from 'svelte-i18n';
 	import { onMount } from 'svelte';
 	const SEOTags = {
 		metadescription:
@@ -10,6 +12,7 @@
 		slug: '',
 		title: ' Issuance - Create your Google Pay pass in 5 minutes'
 	};
+	setupLocale();
 	onMount(async () => {
 		await import('@lottiefiles/lottie-player');
 	});
@@ -18,10 +21,8 @@
 <SEO {...SEOTags} />
 <div class="content">
 	<div class="header">
-		<h1>Enhanced Passes</h1>
-		<span class="callToAction"
-			>Create your (boarding)pass within 5 minutes. No coding required!</span
-		>
+		<h1>{$_('SITE_NAME')}</h1>
+		<span class="callToAction">{$_('CREATE_YOUR_BOARDINGPASS')}</span>
 		<lottie-player
 			class="passLottie"
 			autoplay={true}

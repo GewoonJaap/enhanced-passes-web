@@ -1,10 +1,15 @@
 <script lang="ts">
+	import { setupLocale } from '$lib/locale/i18';
+	import { _ } from 'svelte-i18n';
+
+	setupLocale();
 </script>
 
 <div class="footer">
-	<span>© {new Date().getFullYear()} - Enhanced Passes</span>
+	<span>© {new Date().getFullYear()} - {$_('SITE_NAME')}</span>
 	<span>
-		Made with <span class="emojiFont">❤️</span> by
+		{$_('MADE_WITH')} <span class="emojiFont">❤️</span>
+		{$_('BY')}
 		<a class="githubProfile" target="_blank" rel="noreferrer" href="https://github.com/GewoonJaap"
 			>Jaap</a
 		>
@@ -15,7 +20,7 @@
 			target="_blank"
 			rel="noreferrer"
 		>
-			Suggest a new pass type
+			{$_('SUGGEST_NEW_PASS_TYPE')}
 		</a>
 	</span>
 	<span class="downloadApp">
@@ -24,7 +29,7 @@
 			target="_blank"
 			rel="noreferrer"
 		>
-			Download our Android app
+			{$_('DOWNLOAD_OUR_ANDROID_APP')}
 		</a>
 	</span>
 </div>
