@@ -47,6 +47,13 @@
 		ticketTypes = ticketTypes.concat((await promiseResults)[1].ticketTypes);
 		apiReady = true;
 	});
+
+	function formatTypeName(typeName: string): string {
+		return typeName
+			.split('_')
+			.map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+			.join(' ');
+	}
 </script>
 
 {#if apiReady}
@@ -76,7 +83,7 @@
 				<label class="defaultFont" for="ticketType">{$_('TICKET_TYPE')}</label>
 				<select name="ticketType">
 					{#each ticketTypes as ticketType}
-						<option value={ticketType}>{ticketType.toUpperCase()}</option>
+						<option value={ticketType}>{formatTypeName(ticketType.toLocaleLowerCase())}</option>
 					{/each}
 				</select>
 			</div>
