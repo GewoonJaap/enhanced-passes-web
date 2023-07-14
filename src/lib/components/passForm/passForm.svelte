@@ -45,6 +45,8 @@
 			getTicketTypesFromAPI()
 		]);
 		ticketTypes = ticketTypes.concat((await promiseResults)[1].ticketTypes);
+		//sort alphabetically
+		ticketTypes.sort((a, b) => a.localeCompare(b));
 		apiReady = true;
 	});
 
