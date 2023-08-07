@@ -383,10 +383,10 @@
     esbuild "^0.17.18"
     worktop "0.8.0-next.15"
 
-"@sveltejs/kit@^1.20.4":
-  version "1.22.1"
-  resolved "https://registry.yarnpkg.com/@sveltejs/kit/-/kit-1.22.1.tgz#1429ae67f4cfe725adc25dad47e2271a39a0bab5"
-  integrity sha512-idFhKVEHuCKbTETvuo3V7UShqSYX9JMKVJXP546dOTkh5ZRejo5XtKtsB5TCSwNBa0TH8hIV44/bnylaFhM1Vg==
+"@sveltejs/kit@^1.22.4":
+  version "1.22.4"
+  resolved "https://registry.yarnpkg.com/@sveltejs/kit/-/kit-1.22.4.tgz#466e8521d96ea9e3a55d36b0fb843b635ba384d7"
+  integrity sha512-Opkqw1QXk4Cc25b/heJP2D7mX+OUBFAq4MXKfET58svTTxdeiHFKzmnuRsSF3nmxESqrLjqPAgHpib+knNGzRw==
   dependencies:
     "@sveltejs/vite-plugin-svelte" "^2.4.1"
     "@types/cookie" "^0.5.1"
