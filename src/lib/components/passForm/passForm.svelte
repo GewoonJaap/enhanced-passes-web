@@ -5,14 +5,18 @@
 	import { onMount } from 'svelte';
 	import { setupLocale } from '$lib/locale/i18';
 	import { _ } from 'svelte-i18n';
+	import Select from 'svelte-select';
+	import type { SvelteSelectType } from '$lib/typeDef/svelteSelectType';
 
 	setupLocale();
 
 	let ticketTypes: string[] = ['boardingpass'];
+	let ticketTypesSelectable: SvelteSelectType[] = [];
 	let apiReady = false;
 	let isLoading = false;
 	let error = '';
 	let lastPassUrl = '';
+	let selectedTicketType: SvelteSelectType = { value: 'boardingpass', label: 'Boardingpass' };
 
 	async function generatePass(event: Event) {
 		if (isLoading) return;
@@ -21,7 +25,7 @@
 		const formEl = event.target as HTMLFormElement;
 		const data = new FormData(formEl);
 		const barcodeData = data.get('barcodeData') as string;
-		const ticketType = data.get('ticketType') as string;
+		const ticketType = selectedTicketType.value;
 		const requestData = {
 			barcodeData: barcodeData,
 			barcodeType: ticketType
@@ -47,6 +51,7 @@
 		ticketTypes = ticketTypes.concat((await promiseResults)[1].ticketTypes);
 		//sort alphabetically
 		ticketTypes.sort((a, b) => a.localeCompare(b));
+		ticketTypesSelectable = mapTicketTypesToSveleteSelect();
 		apiReady = true;
 	});
 
@@ -55,6 +60,15 @@
 			.split('_')
 			.map((word) => word.charAt(0).toUpperCase() + word.slice(1))
 			.join(' ');
+	}
+
+	function mapTicketTypesToSveleteSelect(): { value: string; label: string }[] {
+		return ticketTypes.map((ticketType) => {
+			return {
+				value: ticketType,
+				label: formatTypeName(ticketType.toLocaleLowerCase())
+			};
+		});
 	}
 </script>
 
@@ -83,11 +97,7 @@
 			</div>
 			<div class="formInput">
 				<label class="defaultFont" for="ticketType">{$_('TICKET_TYPE')}</label>
-				<select name="ticketType">
-					{#each ticketTypes as ticketType}
-						<option value={ticketType}>{formatTypeName(ticketType.toLocaleLowerCase())}</option>
-					{/each}
-				</select>
+				<Select items={ticketTypesSelectable} searchable={true} bind:value={selectedTicketType} />
 			</div>
 			<button type="submit" class={`defaultFont submitBtn ${isLoading ? 'loading' : ''}`}>
 				<div class="buttonContent">
