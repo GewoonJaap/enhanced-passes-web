@@ -23,7 +23,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@lottiefiles/lottie-player": "^2.0.4",
+		"@lottiefiles/lottie-player": "^2.0.12",
 		"@lottiefiles/svelte-lottie-player": "^0.3.1",
 		"@sveltejs/adapter-cloudflare": "^2.3.4",
 		"svelte-i18n": "^4.0.0",
