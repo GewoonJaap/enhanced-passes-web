@@ -1,27 +1,8 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import { setupLocale } from '$lib/locale/i18';
 	import { _ } from 'svelte-i18n';
 	import PassForm from '$lib/components/passForm/passForm.svelte';
 	import WalletInfo from '$lib/components/homepage/walletInfo.svelte';
-	import { CREATOR_GITHUB_LINK } from '$lib/const/routes';
-
-	let barcodeData = '';
-	let isGenerating = false;
-
-	const handleCreatePass = async () => {
-		if (!barcodeData) return;
-
-		isGenerating = true;
-		// Simulate pass generation
-		setTimeout(() => {
-			isGenerating = false;
-		}, 2000);
-	};
-
-	onMount(async () => {
-		// Any onMount logic from the original +page.svelte or new requirements
-	});
+	import { CREATOR_GITHUB_LINK, SUGGEST_PASS_TYPE_LINK } from '$lib/const/routes';
 </script>
 
 <div class="page-container">
@@ -189,7 +170,9 @@
 				</a>
 			</p>
 			<p class="footer-text extra-small">
-				<a href="#" class="footer-link"> Een nieuwe collectieve voorstelling </a>
+				<a href={SUGGEST_PASS_TYPE_LINK} class="footer-link">
+					Een nieuwe collectieve voorstelling
+				</a>
 			</p>
 		</div>
 	</footer>

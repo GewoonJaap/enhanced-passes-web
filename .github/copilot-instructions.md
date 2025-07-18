@@ -7,6 +7,7 @@ This document provides a detailed overview of the Enhanced Passes web applicatio
 The Enhanced Passes web application is a frontend interface built with Svelte, designed to allow users to create digital passes (e.g., boarding passes) by inputting barcode/QR code data. It interacts with a backend API to generate these passes, which can then be added to digital wallets like Google Wallet.
 
 **Core Functionality:**
+
 - **Pass Creation Form:** Users input barcode/QR code data and select a pass type.
 - **API Integration:** The application communicates with `https://enchanced-passes-api.mrproper.dev` to process pass creation requests.
 - **Digital Wallet Integration:** Generated passes can be directly added to Google Wallet.
@@ -15,6 +16,7 @@ The Enhanced Passes web application is a frontend interface built with Svelte, d
 ## 2. Coding Guidelines
 
 ### General Principles
+
 - **Svelte First:** This project is built with Svelte. While design inspiration may come from other frameworks (like React), all new features and modifications must adhere to Svelte's component-based architecture and reactivity model.
 - **Standard CSS:** Styling is primarily done using standard CSS within Svelte component `<style>` tags. Avoid using external CSS frameworks unless explicitly added to the project.
 - **TypeScript:** The project uses TypeScript for type safety. Ensure all new code is strongly typed and adheres to TypeScript best practices.
@@ -22,17 +24,20 @@ The Enhanced Passes web application is a frontend interface built with Svelte, d
 - **Modularity:** Break down complex features into smaller, reusable components.
 
 ### Svelte Specifics
+
 - Use Svelte's reactivity (`let`, `$:`) effectively.
 - Organize components logically within `src/lib/components/`.
 - Use `onMount` for side effects that need to run after the component is first rendered.
 - For internationalization, use `svelte-i18n` with the `$_` function.
 
 ### TypeScript Specifics
+
 - Define clear interfaces and types for API requests/responses and component props.
 - Ensure strict type checking is maintained.
 - `tsconfig.json` is configured with `verbatimModuleSyntax: true`.
 
 ### CSS Specifics
+
 - Prefer scoped CSS within `<style>` tags for components.
 - Use descriptive class names.
 - Ensure responsive design for various screen sizes.
@@ -92,13 +97,13 @@ Here are the essential NPM commands for working with this project:
 
 This section summarizes recent significant changes and insights gained during development:
 
--   **Styling Methodology:** Initial attempts with Tailwind CSS were reverted due to environmental constraints. All styling is now implemented using standard CSS within Svelte components' `<style>` tags.
--   **PassForm Functionality Fix:** The "create pass" button in `src/lib/components/passForm/passForm.svelte` was debugged and fixed. The `generatePass` function now correctly uses Svelte-bound variables (`barcodeDataInput` and `selectedTicketType.value`) instead of `FormData` from the button's event, ensuring proper API calls.
--   **Text Styling Refinement:** The "Klik op de onderstaande knop..." text in `src/lib/components/passForm/passForm.svelte` was restyled to be less bold and black, using `font-weight: 400` and `color: #4b5563` for better visual integration.
--   **Mobile Button Layout Fix:** The "Download Enhanced Passes app in the Google Play Store" button in `src/lib/components/homepage/walletInfo.svelte` was fixed for mobile display issues. `display: block;`, `text-align: center;`, and `line-height: 1.5;` were added to the `.download-button` CSS class to prevent text overlapping.
--   **Navigation Button Removal:** The "Mijn Passes" button was removed from the navigation bar in `src/routes/+page.svelte` as it was non-functional.
--   **UI Enhancements (Animated Gradients):** Animated gradients were added to:
-    -   The main page background (`.page-container` in `src/routes/+page.svelte`).
-    -   The PassForm header (`.pass-form-header` in `src/lib/components/passForm/passForm.svelte`).
+- **Styling Methodology:** Initial attempts with Tailwind CSS were reverted due to environmental constraints. All styling is now implemented using standard CSS within Svelte components' `<style>` tags.
+- **PassForm Functionality Fix:** The "create pass" button in `src/lib/components/passForm/passForm.svelte` was debugged and fixed. The `generatePass` function now correctly uses Svelte-bound variables (`barcodeDataInput` and `selectedTicketType.value`) instead of `FormData` from the button's event, ensuring proper API calls.
+- **Text Styling Refinement:** The "Klik op de onderstaande knop..." text in `src/lib/components/passForm/passForm.svelte` was restyled to be less bold and black, using `font-weight: 400` and `color: #4b5563` for better visual integration.
+- **Mobile Button Layout Fix:** The "Download Enhanced Passes app in the Google Play Store" button in `src/lib/components/homepage/walletInfo.svelte` was fixed for mobile display issues. `display: block;`, `text-align: center;`, and `line-height: 1.5;` were added to the `.download-button` CSS class to prevent text overlapping.
+- **Navigation Button Removal:** The "Mijn Passes" button was removed from the navigation bar in `src/routes/+page.svelte` as it was non-functional.
+- **UI Enhancements (Animated Gradients):** Animated gradients were added to:
+  - The main page background (`.page-container` in `src/routes/+page.svelte`).
+  - The PassForm header (`.pass-form-header` in `src/lib/components/passForm/passForm.svelte`).
     These enhancements use `@keyframes` animations to create a dynamic visual effect.
--   **TypeScript Configuration (`tsconfig.json`):** The `tsconfig.json` file was updated to remove deprecated options (`importsNotUsedAsValues`, `preserveValueImports`) and include `verbatimModuleSyntax: true` to ensure compatibility with newer TypeScript versions. If TypeScript errors persist, it might be due to a cached TS server; restarting VS Code or the TS server is recommended.
+- **TypeScript Configuration (`tsconfig.json`):** The `tsconfig.json` file was updated to remove deprecated options (`importsNotUsedAsValues`, `preserveValueImports`) and include `verbatimModuleSyntax: true` to ensure compatibility with newer TypeScript versions. If TypeScript errors persist, it might be due to a cached TS server; restarting VS Code or the TS server is recommended.
