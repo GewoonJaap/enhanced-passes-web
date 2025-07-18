@@ -8,7 +8,8 @@
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"format": "prettier --plugin-search-dir . --write ."
+		"format": "prettier --plugin-search-dir . --write .",
+		"tsc": "tsc --noEmit --skipLibCheck --skipDefaultLibCheck"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^2.1.1",
@@ -19,7 +20,7 @@
 		"svelte-check": "^3.8.5",
 		"tslib": "^2.7.0",
 		"typescript": "^5.6.2",
-		"vite": "^4.5.5"
+		"vite": "^4.5.14"
 	},
 	"type": "module",
 	"dependencies": {
