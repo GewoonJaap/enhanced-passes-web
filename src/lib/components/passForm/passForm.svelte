@@ -8,6 +8,7 @@
 	import Select from 'svelte-select';
 	import type { SvelteSelectType } from '$lib/typeDef/svelteSelectType';
 	import { SUGGEST_PASS_TYPE_LINK } from '$lib/const/routes';
+	import { QrCode, ArrowRight } from 'lucide-svelte';
 
 	setupLocale();
 
@@ -74,32 +75,7 @@
 	<div class="pass-form-card">
 		<div class="pass-form-header">
 			<h1 class="pass-form-title">
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					width="20"
-					height="20"
-					viewBox="0 0 24 24"
-					fill="none"
-					stroke="currentColor"
-					stroke-width="2"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					class="lucide lucide-qr-code icon"
-					><rect width="4" height="4" x="2" y="2" /><rect width="4" height="4" x="16" y="2" /><rect
-						width="4"
-						height="4"
-						x="2"
-						y="16"
-					/><path d="M21 16h-3a2 2 0 0 0-2 2v3" /><path d="M21 21v.01" /><path
-						d="M12 7v3a2 2 0 0 1-2 2H7"
-					/><path d="M3 12h.01" /><path d="M12 3h.01" /><path d="M12 12h.01" /><path
-						d="M16 6v.01"
-					/><path d="M18 6v.01" /><path d="M18 3v.01" /><path d="M6 18v.01" /><path
-						d="M6 21v.01"
-					/><path d="M3 18v.01" /><path d="M7 12v.01" /><path d="M12 17v.01" /><path
-						d="M17 12v.01"
-					/><path d="M17 17v.01" /><path d="M17 21v.01" /><path d="M21 12v.01" /></svg
-				>
+				<QrCode size={20} class="icon" color="white" />
 				<span>{$_('CREATE_A_NEW_PASS')}</span>
 			</h1>
 		</div>
@@ -148,19 +124,7 @@
 				{:else}
 					<div class="button-content">
 						{$_('CREATE_PASS')}
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="20"
-							height="20"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="2"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							class="lucide lucide-arrow-right arrow-icon"
-							><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg
-						>
+						<ArrowRight size={20} class="arrow-icon" color="white" />
 					</div>
 				{/if}
 			</button>

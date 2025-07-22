@@ -5,6 +5,7 @@
 	import SEO from '$lib/components/SEO/index.svelte';
 	import LanguageSwitcher from '$lib/components/LanguageSwitcher/index.svelte';
 	import { CREATOR_GITHUB_LINK, SUGGEST_PASS_TYPE_LINK } from '$lib/const/routes';
+	import { Smartphone, QrCode, Zap, Download } from 'lucide-svelte';
 </script>
 
 <SEO
@@ -20,19 +21,7 @@
 		<div class="navbar-content">
 			<div class="navbar-brand">
 				<div class="logo-wrapper">
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						width="20"
-						height="20"
-						viewBox="0 0 24 24"
-						fill="none"
-						stroke="currentColor"
-						stroke-width="2"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						class="lucide lucide-smartphone logo-icon"
-						><rect width="14" height="20" x="5" y="2" rx="2" ry="2" /><path d="M12 18h.01" /></svg
-					>
+					<Smartphone size={20} class="logo-icon" color="white" />
 				</div>
 				<span class="brand-text">{$_('SITE_NAME')}</span>
 			</div>
@@ -65,34 +54,7 @@
 			<div class="grid-container">
 				<div class="grid-item">
 					<div class="icon-wrapper blue">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="32"
-							height="32"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="2"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							class="lucide lucide-qr-code icon"
-							><rect width="4" height="4" x="2" y="2" /><rect
-								width="4"
-								height="4"
-								x="16"
-								y="2"
-							/><rect width="4" height="4" x="2" y="16" /><path
-								d="M21 16h-3a2 2 0 0 0-2 2v3"
-							/><path d="M21 21v.01" /><path d="M12 7v3a2 2 0 0 1-2 2H7" /><path
-								d="M3 12h.01"
-							/><path d="M12 3h.01" /><path d="M12 12h.01" /><path d="M16 6v.01" /><path
-								d="M18 6v.01"
-							/><path d="M18 3v.01" /><path d="M6 18v.01" /><path d="M6 21v.01" /><path
-								d="M3 18v.01"
-							/><path d="M7 12v.01" /><path d="M12 17v.01" /><path d="M17 12v.01" /><path
-								d="M17 17v.01"
-							/><path d="M17 21v.01" /><path d="M21 12v.01" /></svg
-						>
+						<QrCode size={32} class="icon" color="white" />
 					</div>
 					<h3 class="item-title">{$_('STEP_1_TITLE')}</h3>
 					<p class="item-description">
@@ -102,18 +64,7 @@
 
 				<div class="grid-item">
 					<div class="icon-wrapper purple">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="32"
-							height="32"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="2"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							class="lucide lucide-zap icon"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" /></svg
-						>
+						<Zap size={32} class="icon" color="white" />
 					</div>
 					<h3 class="item-title">{$_('STEP_2_TITLE')}</h3>
 					<p class="item-description">
@@ -123,21 +74,7 @@
 
 				<div class="grid-item">
 					<div class="icon-wrapper green">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="32"
-							height="32"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="2"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							class="lucide lucide-download icon"
-							><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline
-								points="7 10 12 15 17 10"
-							/><line x1="12" x2="12" y1="15" y2="3" /></svg
-						>
+						<Download size={32} class="icon" color="white" />
 					</div>
 					<h3 class="item-title">{$_('STEP_3_TITLE')}</h3>
 					<p class="item-description">
@@ -156,19 +93,7 @@
 		<div class="footer-content">
 			<div class="footer-brand">
 				<div class="logo-wrapper">
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						width="20"
-						height="20"
-						viewBox="0 0 24 24"
-						fill="none"
-						stroke="currentColor"
-						stroke-width="2"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						class="lucide lucide-smartphone logo-icon"
-						><rect width="14" height="20" x="5" y="2" rx="2" ry="2" /><path d="M12 18h.01" /></svg
-					>
+					<Smartphone size={20} class="logo-icon" color="white" />
 				</div>
 				<span class="brand-text">{$_('SITE_NAME')}</span>
 			</div>

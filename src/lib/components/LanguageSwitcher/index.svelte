@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { locale } from 'svelte-i18n';
 	import { browser } from '$app/environment';
+	import { Globe, Languages } from 'lucide-svelte';
 
 	function switchLanguage(newLocale: string) {
 		if (browser) {
@@ -13,6 +14,9 @@
 </script>
 
 <div class="language-switcher">
+	<div class="language-icon">
+		<Languages size={18} color="#6b7280" />
+	</div>
 	<button
 		class="lang-button"
 		class:active={currentLocale === 'en'}
@@ -36,6 +40,13 @@
 		display: flex;
 		gap: 0.5rem;
 		align-items: center;
+	}
+
+	.language-icon {
+		display: flex;
+		align-items: center;
+		color: #6b7280;
+		margin-right: 0.25rem;
 	}
 
 	.lang-button {

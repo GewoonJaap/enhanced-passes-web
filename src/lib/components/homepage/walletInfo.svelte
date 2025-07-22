@@ -5,6 +5,7 @@
 	import { setupLocale } from '$lib/locale/i18';
 	import { _ } from 'svelte-i18n';
 	import { ANDROID_APP_LINK } from '$lib/const/routes';
+	import { Smartphone, Shield, Zap, QrCode, Music } from 'lucide-svelte';
 
 	setupLocale();
 
@@ -37,19 +38,7 @@
 	<div class="section-content">
 		<div class="mobile-app-promotion-inner">
 			<div class="icon-wrapper smartphone-icon-wrapper">
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					width="40"
-					height="40"
-					viewBox="0 0 24 24"
-					fill="none"
-					stroke="currentColor"
-					stroke-width="2"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					class="lucide lucide-smartphone icon"
-					><rect width="14" height="20" x="5" y="2" rx="2" ry="2" /><path d="M12 18h.01" /></svg
-				>
+				<Smartphone size={40} class="icon" color="white" />
 			</div>
 			<h2 class="section-title">{$_('ANDROID_APP_SECTION_TITLE')}</h2>
 			<p class="section-description">
@@ -79,19 +68,7 @@
 				<div class="benefits-list">
 					<div class="benefit-item">
 						<div class="icon-wrapper benefit-icon-blue">
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								width="20"
-								height="20"
-								viewBox="0 0 24 24"
-								fill="none"
-								stroke="currentColor"
-								stroke-width="2"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								class="lucide lucide-shield icon"
-								><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg
-							>
+							<Shield size={20} class="icon" color="#2563eb" />
 						</div>
 						<div>
 							<h3 class="benefit-title">{$_('BENEFIT_1_TITLE')}</h3>
@@ -103,18 +80,7 @@
 
 					<div class="benefit-item">
 						<div class="icon-wrapper benefit-icon-purple">
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								width="20"
-								height="20"
-								viewBox="0 0 24 24"
-								fill="none"
-								stroke="currentColor"
-								stroke-width="2"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								class="lucide lucide-zap icon"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" /></svg
-							>
+							<Zap size={20} class="icon" color="#9333ea" />
 						</div>
 						<div>
 							<h3 class="benefit-title">{$_('BENEFIT_2_TITLE')}</h3>
@@ -126,34 +92,7 @@
 
 					<div class="benefit-item">
 						<div class="icon-wrapper benefit-icon-green">
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								width="20"
-								height="20"
-								viewBox="0 0 24 24"
-								fill="none"
-								stroke="currentColor"
-								stroke-width="2"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								class="lucide lucide-qr-code icon"
-								><rect width="4" height="4" x="2" y="2" /><rect
-									width="4"
-									height="4"
-									x="16"
-									y="2"
-								/><rect width="4" height="4" x="2" y="16" /><path
-									d="M21 16h-3a2 2 0 0 0-2 2v3"
-								/><path d="M21 21v.01" /><path d="M12 7v3a2 2 0 0 1-2 2H7" /><path
-									d="M3 12h.01"
-								/><path d="M12 3h.01" /><path d="M12 12h.01" /><path d="M16 6v.01" /><path
-									d="M18 6v.01"
-								/><path d="M18 3v.01" /><path d="M6 18v.01" /><path d="M6 21v.01" /><path
-									d="M3 18v.01"
-								/><path d="M7 12v.01" /><path d="M12 17v.01" /><path d="M17 12v.01" /><path
-									d="M17 17v.01"
-								/><path d="M17 21v.01" /><path d="M21 12v.01" /></svg
-							>
+							<QrCode size={20} class="icon" color="#22c55e" />
 						</div>
 						<div>
 							<h3 class="benefit-title">{$_('BENEFIT_3_TITLE')}</h3>
@@ -169,23 +108,7 @@
 				<div class="example-pass-card">
 					<div class="example-pass-header">
 						<div class="example-pass-header-content">
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								width="24"
-								height="24"
-								viewBox="0 0 24 24"
-								fill="none"
-								stroke="currentColor"
-								stroke-width="2"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								class="lucide lucide-music icon"
-								><path d="M9 18V5l12-2v13" /><circle cx="6" cy="18" r="3" /><circle
-									cx="18"
-									cy="16"
-									r="3"
-								/></svg
-							>
+							<Music size={24} class="icon" color="white" />
 							<span class="example-pass-type">CONCERT</span>
 						</div>
 						<h3 class="example-pass-title">{$_('EXAMPLE_PASS_EVENT')}</h3>
