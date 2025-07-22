@@ -2,8 +2,16 @@
 	import { _ } from 'svelte-i18n';
 	import PassForm from '$lib/components/passForm/passForm.svelte';
 	import WalletInfo from '$lib/components/homepage/walletInfo.svelte';
+	import SEO from '$lib/components/SEO/index.svelte';
 	import { CREATOR_GITHUB_LINK, SUGGEST_PASS_TYPE_LINK } from '$lib/const/routes';
 </script>
+
+<SEO
+	title="Enhanced Passes"
+	description="Easily create and share (boarding) passes for Google Wallet. Make your digital pass in 5 minutes - no code needed!"
+	slug=""
+	keywords="boarding pass, digital wallet, google wallet, apple wallet, passes, tickets, qr code, travel, digital passes, mobile wallet"
+/>
 
 <div class="page-container">
 	<!-- Navigation -->
