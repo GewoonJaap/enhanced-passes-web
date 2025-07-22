@@ -2,8 +2,18 @@
 	import { _ } from 'svelte-i18n';
 	import PassForm from '$lib/components/passForm/passForm.svelte';
 	import WalletInfo from '$lib/components/homepage/walletInfo.svelte';
+	import SEO from '$lib/components/SEO/index.svelte';
+	import LanguageSwitcher from '$lib/components/LanguageSwitcher/index.svelte';
 	import { CREATOR_GITHUB_LINK, SUGGEST_PASS_TYPE_LINK } from '$lib/const/routes';
+	import { Smartphone, QrCode, Zap, Download } from 'lucide-svelte';
 </script>
+
+<SEO
+	title="Enhanced Passes"
+	description="Easily create and share (boarding) passes for Google Wallet. Make your digital pass in 5 minutes - no code needed!"
+	slug=""
+	keywords="boarding pass, digital wallet, google wallet, apple wallet, passes, tickets, qr code, travel, digital passes, mobile wallet"
+/>
 
 <div class="page-container">
 	<!-- Navigation -->
@@ -11,32 +21,22 @@
 		<div class="navbar-content">
 			<div class="navbar-brand">
 				<div class="logo-wrapper">
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						width="20"
-						height="20"
-						viewBox="0 0 24 24"
-						fill="none"
-						stroke="currentColor"
-						stroke-width="2"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						class="lucide lucide-smartphone logo-icon"
-						><rect width="14" height="20" x="5" y="2" rx="2" ry="2" /><path d="M12 18h.01" /></svg
-					>
+					<Smartphone size={20} class="logo-icon" color="white" />
 				</div>
-				<span class="brand-text"> Enhanced Passes </span>
+				<span class="brand-text">{$_('SITE_NAME')}</span>
 			</div>
-			<div class="navbar-actions" />
+			<div class="navbar-actions">
+				<LanguageSwitcher />
+			</div>
 		</div>
 	</nav>
 
 	<!-- Hero Section -->
 	<section class="hero-section">
 		<div class="hero-content">
-			<span class="hero-badge"> 🎫 Maak je digitale pas in 5 minuten </span>
-			<h1 class="hero-title">Enhanced Passes</h1>
-			<p class="hero-subtitle">Maak je boardingpas binnen 5 minuten. Geen code nodig!</p>
+			<span class="hero-badge">{$_('HERO_BADGE')}</span>
+			<h1 class="hero-title">{$_('SITE_NAME')}</h1>
+			<p class="hero-subtitle">{$_('HERO_SUBTITLE')}</p>
 
 			<!-- Main Pass Creator Card -->
 			<PassForm />
@@ -47,90 +47,38 @@
 	<section class="how-it-works-section">
 		<div class="section-content">
 			<div class="section-header">
-				<h2 class="section-title">Hoe werkt het?</h2>
-				<p class="section-subtitle">In 3 eenvoudige stappen naar je digitale pas</p>
+				<h2 class="section-title">{$_('HOW_IT_WORKS')}</h2>
+				<p class="section-subtitle">{$_('HOW_IT_WORKS_SUBTITLE')}</p>
 			</div>
 
 			<div class="grid-container">
 				<div class="grid-item">
 					<div class="icon-wrapper blue">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="32"
-							height="32"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="2"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							class="lucide lucide-qr-code icon"
-							><rect width="4" height="4" x="2" y="2" /><rect
-								width="4"
-								height="4"
-								x="16"
-								y="2"
-							/><rect width="4" height="4" x="2" y="16" /><path
-								d="M21 16h-3a2 2 0 0 0-2 2v3"
-							/><path d="M21 21v.01" /><path d="M12 7v3a2 2 0 0 1-2 2H7" /><path
-								d="M3 12h.01"
-							/><path d="M12 3h.01" /><path d="M12 12h.01" /><path d="M16 6v.01" /><path
-								d="M18 6v.01"
-							/><path d="M18 3v.01" /><path d="M6 18v.01" /><path d="M6 21v.01" /><path
-								d="M3 18v.01"
-							/><path d="M7 12v.01" /><path d="M12 17v.01" /><path d="M17 12v.01" /><path
-								d="M17 17v.01"
-							/><path d="M17 21v.01" /><path d="M21 12v.01" /></svg
-						>
+						<QrCode size={32} class="icon" color="white" />
 					</div>
-					<h3 class="item-title">1. Voer barcode in</h3>
+					<h3 class="item-title">{$_('STEP_1_TITLE')}</h3>
 					<p class="item-description">
-						Scan of typ de barcode/QR code van je papieren ticket of boarding pass
+						{$_('STEP_1_DESCRIPTION')}
 					</p>
 				</div>
 
 				<div class="grid-item">
 					<div class="icon-wrapper purple">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="32"
-							height="32"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="2"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							class="lucide lucide-zap icon"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" /></svg
-						>
+						<Zap size={32} class="icon" color="white" />
 					</div>
-					<h3 class="item-title">2. Automatische generatie</h3>
+					<h3 class="item-title">{$_('STEP_2_TITLE')}</h3>
 					<p class="item-description">
-						Onze technologie maakt automatisch een mooie digitale pas voor je
+						{$_('STEP_2_DESCRIPTION')}
 					</p>
 				</div>
 
 				<div class="grid-item">
 					<div class="icon-wrapper green">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="32"
-							height="32"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="2"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							class="lucide lucide-download icon"
-							><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline
-								points="7 10 12 15 17 10"
-							/><line x1="12" x2="12" y1="15" y2="3" /></svg
-						>
+						<Download size={32} class="icon" color="white" />
 					</div>
-					<h3 class="item-title">3. Toevoegen aan wallet</h3>
+					<h3 class="item-title">{$_('STEP_3_TITLE')}</h3>
 					<p class="item-description">
-						Download direct naar Apple Wallet of Google Wallet - altijd bij de hand!
+						{$_('STEP_3_DESCRIPTION')}
 					</p>
 				</div>
 			</div>
@@ -145,33 +93,21 @@
 		<div class="footer-content">
 			<div class="footer-brand">
 				<div class="logo-wrapper">
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						width="20"
-						height="20"
-						viewBox="0 0 24 24"
-						fill="none"
-						stroke="currentColor"
-						stroke-width="2"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						class="lucide lucide-smartphone logo-icon"
-						><rect width="14" height="20" x="5" y="2" rx="2" ry="2" /><path d="M12 18h.01" /></svg
-					>
+					<Smartphone size={20} class="logo-icon" color="white" />
 				</div>
-				<span class="brand-text">Enhanced Passes</span>
+				<span class="brand-text">{$_('SITE_NAME')}</span>
 			</div>
 
-			<p class="footer-text">© 2025 - Enhanced Passes</p>
+			<p class="footer-text">© 2025 - {$_('SITE_NAME')}</p>
 			<p class="footer-text small">
-				Gemaakt met ❤️ door{' '}
+				{$_('FOOTER_MADE_WITH')}{' '}
 				<a href={CREATOR_GITHUB_LINK} target="_blank" rel="noopener noreferrer" class="footer-link">
 					Jaap
 				</a>
 			</p>
 			<p class="footer-text extra-small">
 				<a href={SUGGEST_PASS_TYPE_LINK} class="footer-link">
-					Een nieuwe collectieve voorstelling
+					{$_('FOOTER_SUGGEST_NEW')}
 				</a>
 			</p>
 		</div>
