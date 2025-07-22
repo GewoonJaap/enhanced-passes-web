@@ -3,6 +3,7 @@
 	import PassForm from '$lib/components/passForm/passForm.svelte';
 	import WalletInfo from '$lib/components/homepage/walletInfo.svelte';
 	import SEO from '$lib/components/SEO/index.svelte';
+	import LanguageSwitcher from '$lib/components/LanguageSwitcher/index.svelte';
 	import { CREATOR_GITHUB_LINK, SUGGEST_PASS_TYPE_LINK } from '$lib/const/routes';
 </script>
 
@@ -33,18 +34,20 @@
 						><rect width="14" height="20" x="5" y="2" rx="2" ry="2" /><path d="M12 18h.01" /></svg
 					>
 				</div>
-				<span class="brand-text"> Enhanced Passes </span>
+				<span class="brand-text">{$_('SITE_NAME')}</span>
 			</div>
-			<div class="navbar-actions" />
+			<div class="navbar-actions">
+				<LanguageSwitcher />
+			</div>
 		</div>
 	</nav>
 
 	<!-- Hero Section -->
 	<section class="hero-section">
 		<div class="hero-content">
-			<span class="hero-badge"> 🎫 Maak je digitale pas in 5 minuten </span>
-			<h1 class="hero-title">Enhanced Passes</h1>
-			<p class="hero-subtitle">Maak je boardingpas binnen 5 minuten. Geen code nodig!</p>
+			<span class="hero-badge">{$_('HERO_BADGE')}</span>
+			<h1 class="hero-title">{$_('SITE_NAME')}</h1>
+			<p class="hero-subtitle">{$_('HERO_SUBTITLE')}</p>
 
 			<!-- Main Pass Creator Card -->
 			<PassForm />
@@ -55,8 +58,8 @@
 	<section class="how-it-works-section">
 		<div class="section-content">
 			<div class="section-header">
-				<h2 class="section-title">Hoe werkt het?</h2>
-				<p class="section-subtitle">In 3 eenvoudige stappen naar je digitale pas</p>
+				<h2 class="section-title">{$_('HOW_IT_WORKS')}</h2>
+				<p class="section-subtitle">{$_('HOW_IT_WORKS_SUBTITLE')}</p>
 			</div>
 
 			<div class="grid-container">
@@ -91,9 +94,9 @@
 							/><path d="M17 21v.01" /><path d="M21 12v.01" /></svg
 						>
 					</div>
-					<h3 class="item-title">1. Voer barcode in</h3>
+					<h3 class="item-title">{$_('STEP_1_TITLE')}</h3>
 					<p class="item-description">
-						Scan of typ de barcode/QR code van je papieren ticket of boarding pass
+						{$_('STEP_1_DESCRIPTION')}
 					</p>
 				</div>
 
@@ -112,9 +115,9 @@
 							class="lucide lucide-zap icon"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" /></svg
 						>
 					</div>
-					<h3 class="item-title">2. Automatische generatie</h3>
+					<h3 class="item-title">{$_('STEP_2_TITLE')}</h3>
 					<p class="item-description">
-						Onze technologie maakt automatisch een mooie digitale pas voor je
+						{$_('STEP_2_DESCRIPTION')}
 					</p>
 				</div>
 
@@ -136,9 +139,9 @@
 							/><line x1="12" x2="12" y1="15" y2="3" /></svg
 						>
 					</div>
-					<h3 class="item-title">3. Toevoegen aan wallet</h3>
+					<h3 class="item-title">{$_('STEP_3_TITLE')}</h3>
 					<p class="item-description">
-						Download direct naar Apple Wallet of Google Wallet - altijd bij de hand!
+						{$_('STEP_3_DESCRIPTION')}
 					</p>
 				</div>
 			</div>
@@ -167,19 +170,19 @@
 						><rect width="14" height="20" x="5" y="2" rx="2" ry="2" /><path d="M12 18h.01" /></svg
 					>
 				</div>
-				<span class="brand-text">Enhanced Passes</span>
+				<span class="brand-text">{$_('SITE_NAME')}</span>
 			</div>
 
-			<p class="footer-text">© 2025 - Enhanced Passes</p>
+			<p class="footer-text">© 2025 - {$_('SITE_NAME')}</p>
 			<p class="footer-text small">
-				Gemaakt met ❤️ door{' '}
+				{$_('FOOTER_MADE_WITH')}{' '}
 				<a href={CREATOR_GITHUB_LINK} target="_blank" rel="noopener noreferrer" class="footer-link">
 					Jaap
 				</a>
 			</p>
 			<p class="footer-text extra-small">
 				<a href={SUGGEST_PASS_TYPE_LINK} class="footer-link">
-					Een nieuwe collectieve voorstelling
+					{$_('FOOTER_SUGGEST_NEW')}
 				</a>
 			</p>
 		</div>

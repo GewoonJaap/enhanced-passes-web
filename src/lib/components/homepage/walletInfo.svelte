@@ -8,6 +8,26 @@
 
 	setupLocale();
 
+	// Function to generate a future date for the Coldplay example
+	function getFutureColdplayDate(): string {
+		const now = new Date();
+		// Add 3-6 months to current date to ensure it's always in the future
+		const futureDate = new Date(now.getFullYear(), now.getMonth() + 4, 15);
+
+		// If the calculated date is in the past, add a year
+		if (futureDate <= now) {
+			futureDate.setFullYear(futureDate.getFullYear() + 1);
+		}
+
+		// Format as "15 Jun 2025" style
+		const options: Intl.DateTimeFormatOptions = {
+			day: '2-digit',
+			month: 'short',
+			year: 'numeric'
+		};
+		return futureDate.toLocaleDateString('en-GB', options);
+	}
+
 	onMount(async () => {
 		await import('@lottiefiles/lottie-player');
 	});
@@ -31,18 +51,15 @@
 					><rect width="14" height="20" x="5" y="2" rx="2" ry="2" /><path d="M12 18h.01" /></svg
 				>
 			</div>
-			<h2 class="section-title">Heb je onze Android app al geprobeerd?</h2>
+			<h2 class="section-title">{$_('ANDROID_APP_SECTION_TITLE')}</h2>
 			<p class="section-description">
-				Wist je dat Enhanced Passes ook beschikbaar is in de Google Play Store? Met onze app heb je
-				nog meer mogelijkheden en tickets voor evenementen rechtstreeks vanaf uw smartphone
-				importeren en beheren.
+				{$_('ANDROID_APP_DESCRIPTION_1')}
 			</p>
 			<p class="section-description">
-				Zeg vaarwel tegen het gedoe van papieren tickets en geniet van het gemak van je paspoort den
-				plak.
+				{$_('ANDROID_APP_DESCRIPTION_2')}
 			</p>
 			<a href={ANDROID_APP_LINK} target="_blank" rel="noopener noreferrer" class="download-button">
-				Download Enhanced Passes app in de Google Play Store
+				{$_('DOWNLOAD_APP_BUTTON')}
 			</a>
 		</div>
 	</div>
@@ -52,7 +69,8 @@
 	<div class="section-content">
 		<div class="section-header">
 			<h2 class="section-title">
-				De voordelen van het importeren van je passen in Google Wallet in {new Date().getFullYear()}
+				{$_('BENEFITS_SECTION_TITLE')}
+				{new Date().getFullYear()}
 			</h2>
 		</div>
 
@@ -76,10 +94,9 @@
 							>
 						</div>
 						<div>
-							<h3 class="benefit-title">Veilig en betrouwbaar</h3>
+							<h3 class="benefit-title">{$_('BENEFIT_1_TITLE')}</h3>
 							<p class="benefit-description">
-								Enhanced Passes gebruikt de nieuwste beveiligingstechnologie om je tickets veilig op
-								te slaan
+								{$_('BENEFIT_1_DESCRIPTION')}
 							</p>
 						</div>
 					</div>
@@ -100,9 +117,9 @@
 							>
 						</div>
 						<div>
-							<h3 class="benefit-title">Altijd beschikbaar</h3>
+							<h3 class="benefit-title">{$_('BENEFIT_2_TITLE')}</h3>
 							<p class="benefit-description">
-								Je tickets zijn altijd beschikbaar, ook zonder internetverbinding
+								{$_('BENEFIT_2_DESCRIPTION')}
 							</p>
 						</div>
 					</div>
@@ -139,9 +156,9 @@
 							>
 						</div>
 						<div>
-							<h3 class="benefit-title">Eenvoudig scannen</h3>
+							<h3 class="benefit-title">{$_('BENEFIT_3_TITLE')}</h3>
 							<p class="benefit-description">
-								Snelle toegang tot je barcode voor eenvoudig scannen bij de ingang
+								{$_('BENEFIT_3_DESCRIPTION')}
 							</p>
 						</div>
 					</div>
@@ -171,32 +188,32 @@
 							>
 							<span class="example-pass-type">CONCERT</span>
 						</div>
-						<h3 class="example-pass-title">Coldplay - Music of the Spheres</h3>
-						<p class="example-pass-location">Johan Cruijff ArenA</p>
+						<h3 class="example-pass-title">{$_('EXAMPLE_PASS_EVENT')}</h3>
+						<p class="example-pass-location">{$_('EXAMPLE_PASS_VENUE')}</p>
 					</div>
 
 					<div class="example-pass-details">
 						<div class="detail-row">
-							<span class="detail-label">Datum</span>
-							<span class="detail-value">15 Jun 2025</span>
+							<span class="detail-label">{$_('EXAMPLE_PASS_DATE')}</span>
+							<span class="detail-value">{getFutureColdplayDate()}</span>
 						</div>
 						<div class="detail-row">
-							<span class="detail-label">Tijd</span>
+							<span class="detail-label">{$_('EXAMPLE_PASS_TIME')}</span>
 							<span class="detail-value">20:00</span>
 						</div>
 						<div class="detail-row">
-							<span class="detail-label">Sectie</span>
+							<span class="detail-label">{$_('EXAMPLE_PASS_SECTION')}</span>
 							<span class="detail-value">A12</span>
 						</div>
 						<div class="detail-row">
-							<span class="detail-label">Rij</span>
+							<span class="detail-label">{$_('EXAMPLE_PASS_ROW')}</span>
 							<span class="detail-value">15</span>
 						</div>
 					</div>
 
 					<div class="example-pass-barcode-section">
 						<div class="example-pass-barcode-container">
-							<div class="barcode-label">BARCODE</div>
+							<div class="barcode-label">{$_('EXAMPLE_PASS_BARCODE')}</div>
 							<div class="barcode-value">|||| ||| |||| |||</div>
 						</div>
 					</div>

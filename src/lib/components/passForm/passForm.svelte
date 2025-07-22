@@ -100,7 +100,7 @@
 						d="M17 12v.01"
 					/><path d="M17 17v.01" /><path d="M17 21v.01" /><path d="M21 12v.01" /></svg
 				>
-				<span>Een nieuwe pas maken</span>
+				<span>{$_('CREATE_A_NEW_PASS')}</span>
 			</h1>
 		</div>
 		<div class="pass-form-content">
@@ -113,7 +113,7 @@
 				{/if}
 			</div>
 			<div class="form-group">
-				<label for="passType" class="form-label"> Type pas </label>
+				<label for="passType" class="form-label">{$_('PASS_TYPE')}</label>
 				<Select
 					items={ticketTypesSelectable}
 					searchable={true}
@@ -122,32 +122,32 @@
 				/>
 				<p class="form-hint">
 					<a href={SUGGEST_PASS_TYPE_LINK} target="_blank" rel="noopener noreferrer"
-						>Pasjes type voorstellen</a
+						>{$_('SUGGEST_PASS_TYPE_LINK')}</a
 					>
 				</p>
 			</div>
 
 			<div class="form-group">
-				<label for="barcodeData" class="form-label"> Barcode/QR gegevens * </label>
+				<label for="barcodeData" class="form-label">{$_('BARCODE_QR_DATA')} *</label>
 				<input
 					type="text"
 					name="barcodeData"
-					placeholder="Voer je barcode of QR code gegevens in"
+					placeholder={$_('BARCODE_QR_PLACEHOLDER')}
 					class="form-input"
 					bind:value={barcodeDataInput}
 				/>
-				<p class="form-hint">Scan of typ de barcode/QR code van je ticket</p>
+				<p class="form-hint">{$_('BARCODE_QR_HINT')}</p>
 			</div>
 
 			<button on:click={generatePass} disabled={isLoading} class="submit-button">
 				{#if isLoading}
 					<div class="loading-content">
 						<div class="spinner" />
-						<span>Pas wordt aangemaakt...</span>
+						<span>{$_('CREATING_PASS_MESSAGE')}</span>
 					</div>
 				{:else}
 					<div class="button-content">
-						Pas aanmaken
+						{$_('CREATE_PASS')}
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							width="20"
@@ -167,7 +167,7 @@
 
 			{#if isLoading}
 				<div class="generating-message">
-					Je digitale pas wordt gegenereerd en klaargemaakt voor je wallet...
+					{$_('GENERATING_MESSAGE')}
 				</div>
 			{/if}
 
