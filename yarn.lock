@@ -906,10 +906,10 @@ lru-queue@^0.1.0:
   dependencies:
     es5-ext "~0.10.2"
 
-lucide-svelte@^0.525.0:
-  version "0.525.0"
-  resolved "https://registry.yarnpkg.com/lucide-svelte/-/lucide-svelte-0.525.0.tgz#d42b11a3ebad168a2891078a2ba4aebedddec021"
-  integrity sha512-kfuN6JcCqTfCz2B76aXnyGLAzEBRSYw5GaUspM5RNHQZS5aI5yaKu06fbaofOk8cDvUtY0AUm/zAix7aUX6Q3A==
+lucide-svelte@^0.563.0:
+  version "0.563.0"
+  resolved "https://registry.yarnpkg.com/lucide-svelte/-/lucide-svelte-0.563.0.tgz#c2a5e72a16c5096843357150e902ba75a2de82f7"
+  integrity sha512-pjZKw7TpQcamfQrx7YdbOHgmrcNeKiGGMD0tKZQaVktwSsbqw28CsKc2Q97ttwjytiCWkJyOa8ij2Q+Og0nPfQ==
 
 magic-string@^0.30.0, magic-string@^0.30.3, magic-string@^0.30.4, magic-string@^0.30.5:
   version "0.30.10"
